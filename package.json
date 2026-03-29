@@ -1,0 +1,43 @@
+{
+  "name": "starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build",
+    "format": "prettier --write **/*.{html,css,scss,js,ts,json,md}",
+    "lint:css": "stylelint **/*.{css,scss}",
+    "lint:css:fix": "stylelint **/*.{css,scss} --fix",
+    "lint:js": "eslint . --ext .js,.ts",
+    "lint:js:fix": "eslint . --ext .js,.ts --fix",
+    "format:all": "npm run format && npm run lint:css:fix && npm run lint:js:fix"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@storybook/addon-links": "^10.3.3",
+    "@storybook/builder-vite": "^10.3.3",
+    "@storybook/html": "^10.3.3",
+    "@storybook/html-vite": "^10.3.3",
+    "@types/node": "^25.5.0",
+    "@types/pug": "^2.0.10",
+    "eslint": "^10.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "globals": "^17.4.0",
+    "prettier": "^3.8.1",
+    "pug": "^3.0.4",
+    "sass": "^1.98.0",
+    "stylelint": "^17.6.0",
+    "stylelint-config-standard": "^40.0.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.57.2",
+    "vite": "^8.0.1",
+    "vite-plugin-pug": "^0.4.1",
+    "vite-plugin-svgr": "^5.0.0"
+  }
+}
