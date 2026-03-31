@@ -34,7 +34,7 @@ export default defineConfig({
           __dirname,
           "src/components/ui-kit/button/button.html"
         ),
-        main: path.resolve(__dirname, "src/pages/index.html"),
+        main: path.resolve(__dirname, "index.html"),
       },
     },
   },
