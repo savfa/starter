@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>starter</title>
+  </head>
+  <body>
+    div#app
+      h1 Hello World
+      p I'm a cool Vite project!
+      include ../../components/ui-kit/button/button.pug
+      +Button({className: "button--primary", label: "Кнопка", onClick: "window.alert(`ok`)"})
+      a(href="/src/components/ui-kit/button/button.html") ui-kit
+    <script type="module" src="src/pages/main/main.ts"></script>
+  </body>
+</html>

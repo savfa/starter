@@ -22,6 +22,7 @@ export default defineConfig({
     extensions: [".js", ".ts", ".pug", ".html"],
     alias: {
       "@src": path.resolve(__dirname, "./src"),
+      "@styles": path.resolve(__dirname, "./src/styles"),
       "@icons": path.resolve(__dirname, "./src/assets/img/icons"),
     },
   },
@@ -29,11 +30,11 @@ export default defineConfig({
     outDir: "build",
     rollupOptions: {
       input: {
-        components: path.resolve(
+        componentButton: path.resolve(
           __dirname,
           "src/components/ui-kit/button/button.html"
         ),
-        main: path.resolve(__dirname, "index.html"),
+        main: path.resolve(__dirname, "src/pages/index.html"),
       },
     },
   },
