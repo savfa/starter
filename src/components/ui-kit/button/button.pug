@@ -1,2 +1,9 @@
-mixin button(className, style, label)
-  button(class=className style=style)= label
+mixin Button(props = {})
+  - const classes = `button ${props.className || ''}`.trim()
+  button(
+    class=classes
+    style=props.style
+    onclick!=props.onClick
+  )=props.label
+    if block
+      block

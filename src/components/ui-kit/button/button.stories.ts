@@ -1,6 +1,6 @@
 import "./button.scss";
-import template from "./button.pug"; // теперь это функция
 import type { Meta, StoryObj } from "@storybook/html";
+import buttonHtml from "/build/src/components/ui-kit/button/button.html?raw";
 
 interface ButtonArgs {
   label: string;
@@ -19,18 +19,27 @@ const meta: Meta<ButtonArgs> = {
   },
   render: (args) => {
     const container = document.createElement("div");
-    container.innerHTML = template({
-      label: args.label,
-      className: `button ${args.className || ""}`,
-      style: args.style || "",
-    });
+    container.innerHTML = buttonHtml;
 
-    if (args.onClick) {
-      container
-        .querySelector("button")
-        ?.addEventListener("click", args.onClick);
+    let buttonEl = container.querySelector("button")!;
+
+    switch (args.className) {
+      case "button--primary":
+        buttonEl = container.querySelector(".button--primary")!;
+        break;
+      case "button--secondary":
+        buttonEl = container.querySelector(".button--secondary")!;
+        break;
+      default:
+        break;
     }
 
+    if (args.onClick) {
+      buttonEl.querySelector("button")?.addEventListener("click", args.onClick);
+    }
+
+    container.innerHTML = ``;
+    container.append(buttonEl);
     return container;
   },
 };

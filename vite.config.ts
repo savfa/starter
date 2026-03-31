@@ -5,7 +5,12 @@ import pugPlugin from "vite-plugin-pug";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [svgrPlugin(), pugPlugin()],
+  plugins: [
+    svgrPlugin(),
+    pugPlugin({
+      localImports: true, // ✅ Разрешает относительные импорты в src
+    }),
+  ],
   css: {
     preprocessorOptions: {
       scss: {
@@ -14,6 +19,7 @@ export default defineConfig({
     },
   },
   resolve: {
+    extensions: [".js", ".ts", ".pug", ".html"],
     alias: {
       "@src": path.resolve(__dirname, "./src"),
       "@icons": path.resolve(__dirname, "./src/assets/img/icons"),
@@ -23,8 +29,11 @@ export default defineConfig({
     outDir: "build",
     rollupOptions: {
       input: {
+        components: path.resolve(
+          __dirname,
+          "src/components/ui-kit/button/button.html"
+        ),
         main: path.resolve(__dirname, "index.html"),
-        // nested: path.resolve(__dirname, 'nested/index.html')
       },
     },
   },
